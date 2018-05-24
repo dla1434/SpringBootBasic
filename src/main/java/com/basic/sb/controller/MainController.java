@@ -28,7 +28,7 @@ public class MainController {
 	@GetMapping("/")
 	public String home(HttpServletRequest request){
 		request.setAttribute("mode", "MODE_HOME");
-		System.out.println("test");
+		System.out.println("test1");
 //		return "redirect:/index";
 		return "index";
 	}
