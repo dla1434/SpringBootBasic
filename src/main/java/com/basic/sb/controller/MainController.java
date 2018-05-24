@@ -43,7 +43,7 @@ public class MainController {
 		request.setAttribute("tasks", findAll);
 		request.setAttribute("mode", "MODE_TASKS");
 		
-		return "index";
+		return "jpa/list";
 	}
 	
 	@GetMapping("/new-task")
