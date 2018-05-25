@@ -27,10 +27,14 @@ public class MainController {
 
 	@GetMapping("/")
 	public String home(HttpServletRequest request){
-		request.setAttribute("mode", "MODE_HOME");
-		System.out.println("test1");
-//		return "redirect:/index";
+		log.info("/");
 		return "index";
+	}
+	
+	@GetMapping("/dashboard")
+	public String dashboard(HttpServletRequest request){
+		log.info("/dashboard");
+		return "dashboard";
 	}
 	
 	@GetMapping("/all-tasks")
@@ -41,15 +45,15 @@ public class MainController {
 		log.info("tasks findAll : {}", findAll);
 		
 		request.setAttribute("tasks", findAll);
-		request.setAttribute("mode", "MODE_TASKS");
 		
 		return "jpa/list";
 	}
 	
 	@GetMapping("/new-task")
 	public String newTask(HttpServletRequest request){
-		request.setAttribute("mode", "MODE_NEW");
-		return "index";
+		log.info("new-tasks");
+		
+		return "jpa/view";
 	}
 	
 	@PostMapping("/save-task")
@@ -57,22 +61,24 @@ public class MainController {
 		task.setDateCreated(new Date());
 		taskService.save(task);
 		request.setAttribute("tasks", taskService.findAll());
-		request.setAttribute("mode", "MODE_TASKS");
-		return "index";
+		
+		return "jpa/list";
 	}
 	
 	@GetMapping("/update-task")
 	public String updateTask(@RequestParam int id, HttpServletRequest request){
+		log.info("new-tasks");
+		
 		request.setAttribute("task", taskService.findTask(id));
-		request.setAttribute("mode", "MODE_UPDATE");
-		return "index";
+		
+		return "jpa/view";
 	}
 	
 	@GetMapping("/delete-task")
 	public String deleteTask(@RequestParam int id, HttpServletRequest request){
 		taskService.delete(id);
 		request.setAttribute("tasks", taskService.findAll());
-		request.setAttribute("mode", "MODE_TASKS");
-		return "index";
+		
+		return "jpa/list";
 	}
 }
