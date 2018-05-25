@@ -44,6 +44,11 @@ public class MainController {
 		return "dashboard";
 	}
 	
+	@GetMapping("/admin")
+	public String admin() {
+		return "admin/admin";
+	}
+	
 	@GetMapping("/all-tasks")
 	public String allTasks(HttpServletRequest request){
 		log.info("all-tasks");
