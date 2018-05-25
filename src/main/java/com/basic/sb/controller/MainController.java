@@ -33,6 +33,11 @@ public class MainController {
 		return "index";
 	}
 	
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
+	
 	@GetMapping("/dashboard")
 	public String dashboard(HttpServletRequest request){
 		log.info("/dashboard");
@@ -87,5 +92,10 @@ public class MainController {
 		request.setAttribute("page", "fragments/jpa/list");
 		
 		return "index";
+	}
+	
+	@GetMapping("/403")
+	public String error403() {
+		return "error/403";
 	}
 }
