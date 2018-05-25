@@ -28,6 +28,8 @@ public class MainController {
 	@GetMapping("/")
 	public String home(HttpServletRequest request){
 		log.info("/");
+		request.setAttribute("page", "fragments/main");
+		
 		return "index";
 	}
 	
@@ -44,16 +46,18 @@ public class MainController {
 		List<Task> findAll = taskService.findAll();
 		log.info("tasks findAll : {}", findAll);
 		
+		request.setAttribute("page", "fragments/jpa/list");
 		request.setAttribute("tasks", findAll);
 		
-		return "jpa/list";
+		return "index";
 	}
 	
 	@GetMapping("/new-task")
 	public String newTask(HttpServletRequest request){
 		log.info("new-tasks");
+		request.setAttribute("page", "fragments/jpa/view");
 		
-		return "jpa/view";
+		return "index";
 	}
 	
 	@PostMapping("/save-task")
@@ -61,8 +65,9 @@ public class MainController {
 		task.setDateCreated(new Date());
 		taskService.save(task);
 		request.setAttribute("tasks", taskService.findAll());
+		request.setAttribute("page", "fragments/jpa/list");
 		
-		return "jpa/list";
+		return "index";
 	}
 	
 	@GetMapping("/update-task")
@@ -70,15 +75,17 @@ public class MainController {
 		log.info("new-tasks");
 		
 		request.setAttribute("task", taskService.findTask(id));
+		request.setAttribute("page", "fragments/jpa/view");
 		
-		return "jpa/view";
+		return "index";
 	}
 	
 	@GetMapping("/delete-task")
 	public String deleteTask(@RequestParam int id, HttpServletRequest request){
 		taskService.delete(id);
 		request.setAttribute("tasks", taskService.findAll());
+		request.setAttribute("page", "fragments/jpa/list");
 		
-		return "jpa/list";
+		return "index";
 	}
 }
