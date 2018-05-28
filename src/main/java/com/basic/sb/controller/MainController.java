@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.basic.sb.model.Task;
@@ -33,8 +34,10 @@ public class MainController {
 		return "index";
 	}
 	
-	@GetMapping("/login")
+	@RequestMapping("/login")
 	public String login() {
+		log.info("login");
+		
 		return "login";
 	}
 	
