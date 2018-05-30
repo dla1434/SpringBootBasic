@@ -38,25 +38,25 @@ public class SpringBootTestApplication {
 		return sqlSessionFactoryBean.getObject();
 	}
 	
-//	@Bean
-//	public Map<String, UserInfo> getLoginUserInfoMap() {
-//		
-//		String[] userInfoArr = userLoginInfo.split(",");
-//		
-//		Map<String, UserInfo> userInfoMap = new HashMap<String, UserInfo>();
-//		
-//		for (String userStr : userInfoArr) {
-//			String[] userStrArr = userStr.split(":");
-//			String userId = userStrArr[0];
-//			String userPassword = userStrArr[1];
-//
-//			UserInfo userInfo = new UserInfo();
-//			userInfo.setUserId(userId);
-//			userInfo.setPassword(userPassword);
-//			
-//			userInfoMap.put(userId, userInfo);
-//		}
-//		
-//		return userInfoMap;
-//	}
+	@Bean
+	public Map<String, UserInfo> getLoginUserInfoMap() {
+		
+		String[] userInfoArr = userLoginInfo.split(",");
+		
+		Map<String, UserInfo> userInfoMap = new HashMap<String, UserInfo>();
+		
+		for (String userStr : userInfoArr) {
+			String[] userStrArr = userStr.split(":");
+			String userId = userStrArr[0];
+			String userPassword = userStrArr[1];
+
+			UserInfo userInfo = new UserInfo();
+			userInfo.setUserId(userId);
+			userInfo.setPassword(userPassword);
+			
+			userInfoMap.put(userId, userInfo);
+		}
+		
+		return userInfoMap;
+	}
 }
