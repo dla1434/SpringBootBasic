@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+	<head>
+		<th:block th:include="fragments/head :: head" />
+		<th:block th:include="${page} :: scripts" />
+	</head>
+	
+	<body>
+		<div id="wrapper">
+			<!-- Navigation -->
+			<th:block th:include="fragments/nav :: nav" />
+			
+			<!-- Main -->
+			<th:block th:replace="${page} :: content" />
+		</div>
+		<!-- /#wrapper -->
+	</body>
+</html>
