@@ -1,4 +1,7 @@
 /target/
 
-
 *.class
+
+.gitignore
+.project
+.settings/

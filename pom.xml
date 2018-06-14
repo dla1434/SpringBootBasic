@@ -36,6 +36,12 @@
 			<scope>test</scope>
 		</dependency>
 		
+		<!-- SpringBoot Security -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		
 		<!-- DB Common -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -48,6 +54,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
+		<!-- For Mybatis Auto Reload -->
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
